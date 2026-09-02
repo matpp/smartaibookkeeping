@@ -11,7 +11,7 @@ import { ManageListsModal } from "./components/ManageListsModal";
 import { SubscriptionModal } from "./components/SubscriptionModal";
 import { RecurringTransactionsModal } from "./components/RecurringTransactionsModal";
 import { AuthModal } from "./components/AuthModal";
-import LandingPage from "./LandingPage"; //[cite: 2]
+import LandingPage from "./components/LandingPage"; 
 import { matchAccountFromPayment } from "./utils/paymentRuleMatcher";
 import { calculateNextRunDate } from "./utils/recurrence";
 import { supabase, signInWithGoogle } from "./utils/supabase";
