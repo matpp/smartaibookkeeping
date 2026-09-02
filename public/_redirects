@@ -1,5 +1,8 @@
-# Serve the landing page at the root domain
-/             /landing.html   200
+# Force root URL to serve your custom static landing page
+/    /landing.html   200
 
-# Route all dashboard/app traffic to your React application bundle
-/app/*        /index.html   200
+# Route all dashboard traffic into the React app
+/app/*   /index.html   200
+
+# Catch-all fallback for React router SPA navigation
+/*   /index.html   200
