@@ -1,6 +1,0 @@
-# Serve your static landing page at the root URL
-/    /landing.html   200
-
-# Route all /app requests to the React application output
-/app/*   /app/index.html   200
-/app     /app/index.html   200
