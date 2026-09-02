@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Source Sans 3', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #f4f8f8;
+    color: #333333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  code, kbd, samp, pre, .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+/* SmartAI Brand Color Helpers & Theme */
+:root {
+  --brand-navy: #121F3E;
+  --brand-emerald: #008FA5;
+  --brand-teal: #00D2A0;
+  --brand-gold: #D2A054;
+  --brand-bg: #F4F8F8;
+  --brand-charcoal: #333333;
+}
+
+.bg-brand-navy { background-color: #121F3E; }
+.text-brand-navy { color: #121F3E; }
+.border-brand-navy { border-color: #121F3E; }
+
+.bg-brand-emerald { background-color: #008FA5; }
+.text-brand-emerald { color: #008FA5; }
+.border-brand-emerald { border-color: #008FA5; }
+
+.bg-brand-teal { background-color: #00D2A0; }
+.text-brand-teal { color: #00D2A0; }
+
+.bg-brand-gold { background-color: #D2A054; }
+.text-brand-gold { color: #D2A054; }
+
+/* Brand Gradients */
+.bg-gradient-brand {
+  background: linear-gradient(135deg, #121F3E 0%, #008FA5 100%);
+}
+
+.bg-gradient-brand-emerald {
+  background: linear-gradient(135deg, #008FA5 0%, #00D2A0 100%);
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-panel-dark {
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Scanning beam animation */
+@keyframes scan-beam {
+  0% {
+    top: 0%;
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    top: 98%;
+    opacity: 0.8;
+  }
+}
+
+.animate-scan {
+  animation: scan-beam 2.2s ease-in-out infinite alternate;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Smart AI Bookkeeping",
+  "description": "An AI-powered bookkeeping tool for uploading receipts, extracting vendor, date, and itemized category splits via Gemini Vision AI or Tesseract OCR, and submitting structured transactions to Google Sheets.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,23 @@
+{
+  "short_name": "SmartAI Bookkeeping",
+  "name": "SmartAI Bookkeeping App",
+  "icons": [
+    {
+      "src": "/app-logo.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#121F3E",
+  "theme_color": "#008FA5",
+  "display": "standalone",
+  "orientation": "portrait"
+}

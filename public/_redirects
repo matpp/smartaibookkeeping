@@ -1,0 +1,5 @@
+# Serve the landing page at the root domain
+/             /index.html   200
+
+# Route all dashboard/app traffic to your React application bundle
+/app/*        /app/index.html   200
