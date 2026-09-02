@@ -11,6 +11,7 @@ import { ManageListsModal } from "./components/ManageListsModal";
 import { SubscriptionModal } from "./components/SubscriptionModal";
 import { RecurringTransactionsModal } from "./components/RecurringTransactionsModal";
 import { AuthModal } from "./components/AuthModal";
+import LandingPage from "./LandingPage"; //[cite: 2]
 import { matchAccountFromPayment } from "./utils/paymentRuleMatcher";
 import { calculateNextRunDate } from "./utils/recurrence";
 import { supabase, signInWithGoogle } from "./utils/supabase";
@@ -222,7 +223,6 @@ export default function App() {
           });
         }
         setRefreshQuotaKey((prev) => prev + 1);
-        showStatus("✨ Cloud configuration synchronized from Supabase!", "success");
       }
     } catch (err) {
       console.error("Error downloading cloud settings:", err);
@@ -240,7 +240,7 @@ export default function App() {
     const payload = {
       spreadsheetId: updatedFields.sheetId ?? spreadsheetId,
       categories: updatedFields.cats ?? categories,
-      accounts: updatedFields.accs ?? accounts,
+      accounts: updatedFields.accounts ?? accounts,
       cardPaymentSettings: updatedFields.cardSettings ?? cardPaymentSettings,
     };
 
@@ -777,33 +777,19 @@ export default function App() {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-[#F3F4F6] flex flex-col justify-center items-center px-6 font-sans">
-        <div className="flex flex-col items-center justify-center max-w-sm w-full">
-          {/* Logo Container */}
-          <div className="w-[180px] h-[180px] rounded-full bg-[#0F2A4A] flex justify-center items-center mb-[60px] shadow-lg">
-            <img 
-              src="./Logo_Round.png" 
-              alt="SmartAI Bookkeeping App Logo" 
-              className="w-[85%] h-[85%] rounded-full object-contain"
-            />
-          </div>
-
-          {/* Sign In Button */}
-          <button 
-            onClick={async () => {
-              try {
-                await signInWithGoogle();
-              } catch (err: any) {
-                console.error("Sign-in error:", err.message);
-              }
-            }}
-            className="flex flex-row bg-[#0F2A4A] w-full max-w-[340px] h-[56px] rounded-xl justify-center items-center shadow-md active:opacity-90 transition-all cursor-pointer"
-          >
-            <span className="text-[#00FFCC] font-bold text-lg mr-2.5">→</span>
-            <span className="text-white text-base font-semibold tracking-wide">Sign In with Google</span>
-          </button>
-        </div>
-
+      <div className="min-h-screen bg-[#F3F4F6] flex flex-col justify-between font-sans">
+        <LandingPage
+          onLoginClick={async () => {
+            try {
+              await signInWithGoogle();
+            } catch (err: any) {
+              console.error("Sign-in error:", err.message);
+            }
+          }}
+          onRoadmapClick={() => {
+            setIsAuthOpen(true);
+          }}
+        />
         <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
       </div>
     );
