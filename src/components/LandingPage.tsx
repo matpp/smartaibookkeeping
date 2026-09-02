@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 
-export default function LandingPage() {
+interface LandingPageProps {
+  onLoginClick: () => void;
+  onRoadmapClick: () => void;
+}
+
+export default function LandingPage({ onLoginClick, onRoadmapClick }: LandingPageProps) {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   const openLoginModal = () => setIsLoginModalOpen(true);
   const closeLoginModal = () => setIsLoginModalOpen(false);
-  const simulateLogin = () => {
-    window.location.href = "/app/";
-  };
 
   return (
     <div style={{
@@ -360,7 +362,7 @@ export default function LandingPage() {
 
             {/* ROADMAP BANNER */}
             <div 
-              onClick={openLoginModal}
+              onClick={onRoadmapClick}
               style={{
                 background: 'linear-gradient(135deg, #121F3E 0%, #1A2B52 100%)',
                 color: '#FFFFFF',
@@ -540,7 +542,10 @@ export default function LandingPage() {
             </p>
             
             <button 
-              onClick={simulateLogin}
+              onClick={() => {
+                closeLoginModal();
+                onLoginClick();
+              }}
               style={{
                 width: '100%',
                 background: '#121F3E',
